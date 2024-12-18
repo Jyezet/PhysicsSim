@@ -25,13 +25,15 @@ int main(){
     neutron.mass = 50;
     electron.mass = 50;
 
-    std::vector<Particle> particles = { Particle(proton), Particle(electron) };
+    std::vector<Particle> particles = { Particle(proton), Particle(electron), Particle(proton)};
     particles[0].position = Vector2(100, 100);
-    particles[1].position = Vector2(200, 200);
+    particles[1].position = Vector2(400, 400);
+    particles[2].position = Vector2(150, 150);
 
     CompositeElectricField total_electric_field({
         &particles[0].electric_field,
-        &particles[1].electric_field
+        &particles[1].electric_field,
+        &particles[2].electric_field,
     });
 
     while (window.isOpen()) {

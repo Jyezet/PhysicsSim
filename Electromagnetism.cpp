@@ -9,7 +9,7 @@ ElectricField::ElectricField(double charge, Vector2 origin) {
 
 Vector2 ElectricField::calculate(Vector2 position) const {
 	double DistanceSquared = (this->origin - position).get_magnitude();
-	Vector2 UnitVector = (this->origin - position).get_direction_vector();
+	Vector2 UnitVector = (position - this->origin).get_direction_vector();
 
 	return UnitVector * (this->charge / DistanceSquared);
 }

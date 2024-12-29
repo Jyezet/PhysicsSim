@@ -18,24 +18,30 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Math.cpp">
+    <ClCompile Include="Electromagnetism\Electromagnetism.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Electromagnetism.cpp">
+    <ClCompile Include="Electromagnetism\Particles.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Particles.cpp">
+    <ClCompile Include="include\_Math.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Electromagnetism\Sim.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Math.h">
+    <ClInclude Include="Electromagnetism\Electromagnetism.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Electromagnetism.h">
+    <ClInclude Include="Electromagnetism\Particles.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Particles.h">
+    <ClInclude Include="include\_Math.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Electromagnetism\Sim.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

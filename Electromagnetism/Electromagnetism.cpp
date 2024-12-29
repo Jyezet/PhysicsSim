@@ -1,4 +1,5 @@
 #include "Electromagnetism.h"
+#include <_Math.h>
 
 ElectricField::ElectricField(){}
 
@@ -21,6 +22,8 @@ void ElectricField::move_origin(Vector2 new_origin) {
 CompositeElectricField::CompositeElectricField(std::vector<ElectricField*> electric_fields) {
 	this->electric_fields = electric_fields;
 }
+
+CompositeElectricField::CompositeElectricField() {}
 
 Vector2 CompositeElectricField::calculate(Vector2 Position) const {
 	Vector2 Result;

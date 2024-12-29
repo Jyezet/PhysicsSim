@@ -13,7 +13,7 @@ public:
 	ElectricField electric_field;
 
 	Particle();
-	Particle(const char*, double, sf::Color, int);
+	Particle(const char*, double, sf::Color, int, double);
 	Particle(const char*, double, Vector2);
 	void move(float);
 };

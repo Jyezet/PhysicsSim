@@ -9,12 +9,13 @@ Particle::Particle(const char* name, double charge, Vector2 position) {
 	this->electric_field = ElectricField(this->charge, this->position);
 }
 
-Particle::Particle(const char* name, double charge, sf::Color color, int radius) {
+Particle::Particle(const char* name, double charge, sf::Color color, int radius, double mass) {
 	this->name = name;
 	this->charge = charge;
 	this->electric_field = ElectricField(this->charge, this->position);
 	this->shape = sf::CircleShape(radius);
 	this->shape.setFillColor(color);
+	this->mass = mass;
 }
 
 void Particle::move(float dt) {

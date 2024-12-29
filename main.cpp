@@ -1,13 +1,22 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <iostream>
+#include <iomanip>
 
-#include "Math.h"
-#include "Electromagnetism.h"
-#include "Particles.h"
+#include <_Math.h>
+//#include "Electromagnetism/Electromagnetism.h"
+//#include "Electromagnetism/Particles.h"
+//#include "Electromagnetism/Sim.h"
 
-#define WINDOW_TITLE "Nuclear simulation"
+#ifndef SCREEN_WIDTH
 #define SCREEN_WIDTH 800
+#endif
+#ifndef SCREEN_HEIGHT
 #define SCREEN_HEIGHT 800
+#endif
+#ifndef WINDOW_TITLE
+#define WINDOW_TITLE "Sim"
+#endif
 
 int main(){
     sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), WINDOW_TITLE);
@@ -16,25 +25,15 @@ int main(){
     sf::Clock clock;
     float dt;
 
-    Particle proton("Proton", 1, sf::Color::Red, 20);
-    Particle neutron("Neutron", 0, sf::Color::Green, 10);
-    Particle electron("Electron", -1, sf::Color::Blue, 5);
+    /*Particle proton("Proton", 1, sf::Color::Red, 20, 100);
+    Particle neutron("Neutron", 0, sf::Color::Green, 10, 20);
+    Particle electron("Electron", -1, sf::Color::Blue, 5, 5);
+     
+    proton.position = Vector2(100, 100);
+    neutron.position = Vector2(150, 150);
+    electron.position = Vector2(400, 400);
 
-    // obviously these are not the actual values
-    proton.mass = 50;
-    neutron.mass = 50;
-    electron.mass = 50;
-
-    std::vector<Particle> particles = { Particle(proton), Particle(electron), Particle(proton)};
-    particles[0].position = Vector2(100, 100);
-    particles[1].position = Vector2(400, 400);
-    particles[2].position = Vector2(150, 150);
-
-    CompositeElectricField total_electric_field({
-        &particles[0].electric_field,
-        &particles[1].electric_field,
-        &particles[2].electric_field,
-    });
+    ElectromagnetismSim sim(std::vector<Particle*>{ &proton, &electron, &neutron }, &window);*/
 
     while (window.isOpen()) {
         while (window.pollEvent(e)) {
@@ -49,14 +48,7 @@ int main(){
         
         window.clear();
 
-        // Calculate this first before moving anything
-        for (int i = 0; i < particles.size(); i++)
-            particles[i].acceleration = 500 * particles[i].charge * total_electric_field.calculate(particles[i].position);
-
-        for (int i = 0; i < particles.size(); i++) {
-            particles[i].move(dt);
-            window.draw(particles[i].shape);
-        }
+        //sim.mainloop(dt);
 
         window.display();
     }
